@@ -1,0 +1,42 @@
+﻿@model Response
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">Ask From Chat GPT?</div>
+                <div class="card-body">
+                    <div class="chat-messages mb-3">
+                        <h3 class="text-muted text-center">Answer....</h3>
+                        @if (Model.Answer != null)
+                        {
+                            <div class="media mb-5">
+                                <img src="https://via.placeholder.com/64x64" class="mr-3 rounded-circle" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Chat GPT</h5>
+                                    @Model.Answer
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"></div>
+                    </div>
+                    <form method="post">
+                        <div class="chat-input">
+                            <div class="input-group">
+                                <input hidden asp-for="ID" />
+                                <textarea asp-for="Question" class="form-control" id="askquestion" required placeholder="Type your Question here"></textarea>
+                                <div class="input-group-append">
+                                    <button class="custom-btn">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
